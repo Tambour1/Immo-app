@@ -2,14 +2,15 @@ version: '3.8'
 
 services:
   web:
-    build: .
+    image: php:8.1-apache
     container_name: php_web
     ports:
-      - "8081:80"
+      - "8082:8082"
     volumes:
       - .:/var/www/html
     depends_on:
       - db
+    command: php -S 0.0.0.0:8082 -t /var/www/html/public
     environment:
       MYSQL_HOST: db
 
