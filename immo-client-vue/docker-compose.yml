@@ -1,0 +1,10 @@
+services:
+  immo-client:
+    image: node:20
+    container_name: immo-app-client
+    working_dir: /app
+    ports:
+      - "8080:3000"
+    volumes:
+      - .:/app
+    command: bash -c "npm install && npm run dev"
